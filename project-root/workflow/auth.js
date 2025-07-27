@@ -1,7 +1,4 @@
-import dotenv from 'dotenv';
-
 export async function getAccessToken() {
-    dotenv.config();
     const response = await fetch('https://accounts.pyrus.com/api/v4/auth', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -11,8 +8,17 @@ export async function getAccessToken() {
         })
     });
 
-    if (!response.ok) { 
-        throw new Error('Ошибка получения токена: ' + response.statusText);
+    if (!response.ok) {
+        // Попытаться прочитать тело с ошибкой (json или текст)
+        let errorDetails;
+        try {
+            errorDetails = await response.json();
+        } catch {
+            errorDetails = await response.text();
+        }
+        throw new Error(`Ошибка получения токена: ${response.status} ${response.statusText} — ${JSON.stringify(errorDetails)}`);
     }
-    return (await response.json()).access_token;
+
+    const data = await response.json();
+    return data.access_token;
 }

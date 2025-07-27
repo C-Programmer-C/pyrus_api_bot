@@ -27,6 +27,7 @@ export async function updateUserFromTask(task, found_user) {
     const FIELD_EMAIL_ID_FORM_USER = 7;
 
     const FIELD_CONTRACTOR_ID_FORM_USER = 10;
+    const FIELD_USER_ID = 72;
 
     let taskId = task.fields.find(f => f.name === 'Контрагент')?.value?.task_id;
     
@@ -66,6 +67,10 @@ export async function updateUserFromTask(task, found_user) {
         {
             id: FIELD_EMAIL_ID_FORM_USER,
             value: task.fields.find(f => f.id === FIELD_EMAIL_ID_FORM_REQUEST)?.value || ''
+        },
+        {
+            id: FIELD_USER_ID,
+            value: task.fields.find(f => f.id === FIELD_USER_ID)?.value || ''
         }
     ];
     
