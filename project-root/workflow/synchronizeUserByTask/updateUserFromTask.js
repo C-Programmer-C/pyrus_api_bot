@@ -71,7 +71,7 @@ export async function updateUserFromTask(task, found_user) {
             value: task.fields.find(f => f.id === FIELD_EMAIL_ID_FORM_REQUEST)?.value || ''
         },
         {
-            id: FIELD_USER_ID,
+            id: FIELD_USER_ID_FORM_USER,
             value: task.fields.find(f => f.id === FIELD_USER_ID_FORM_REQUEST)?.value || ''
         }
     ];
