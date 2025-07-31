@@ -1,6 +1,6 @@
 import { startServer } from "./server.js";
 import { assignUserByEmail} from "./workflow/assignByEmail/assignUserByEmail.js";
-import { insertUserData } from "./workflow/insertUserData/InsertUserData.js";
+import { insertUserData } from "./workflow/insertUserData/insertUserData.js";
 import { syncUserDataFromTask} from "./workflow/synchronizeUserByTask/syncUserDataFromTask.js";
 import dotenv from 'dotenv';
 
