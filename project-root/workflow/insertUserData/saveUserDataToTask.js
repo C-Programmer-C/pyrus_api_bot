@@ -15,10 +15,6 @@ export async function saveUserDataToTask(task_id, user_id, username_telegram)
     {
         id: IS_MESSAGE_FROM_TELEGRAM_FIELD_ID,
         value: { choice_ids: [3], choice_id: 3}
-    },
-    {
-        id: 68,
-        value: new Date().toISOString()
     }
 ];
 
