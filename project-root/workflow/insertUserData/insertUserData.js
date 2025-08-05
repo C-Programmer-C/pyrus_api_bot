@@ -5,6 +5,7 @@ import {isEmptyArray, isFieldEmpty, findUserByTask} from '../taskUtils.js';
 import { HasEmptyData, isProccessedTask } from './taskHasAllData.js';
 import { saveUserDataToTask } from './saveUserDataToTask.js';
 import { parseUserData } from './parseUserData.js';
+import { saveDataToUser } from './saveDataToUser.js';
 
 export async function insertUserData() { 
   
@@ -59,6 +60,9 @@ export async function insertUserData() {
     }
     
     await saveUserDataToTask(task.id, user_id, name)
+    console.log(user_field)
+    const task_user_id = user_field.value.task_id
+    await saveDataToUser(task_user_id, name, user_id)
 
   }
 
